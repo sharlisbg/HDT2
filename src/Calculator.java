@@ -4,7 +4,8 @@ import java.util.ArrayList;
  * @author 
  */
 public class Calculator implements IPostfixCalculator {
-    ArrayList<String> postfix_expression;
+    StackUsingArrayList<String> postfix_expression = new StackUsingArrayList<>();
+    ArrayList<String> original = new ArrayList<>();
 
 
     @Override
