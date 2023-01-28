@@ -4,14 +4,21 @@ import java.util.ArrayList;
  * @author 
  */
 public class Calculator implements IPostfixCalculator {
-    StackUsingArrayList<String> postfix_expression = new StackUsingArrayList<>();
-    ArrayList<String> original = new ArrayList<>();
+    private StackUsingArrayList<Integer> postfix_expression;
+    private String linea; 
+
+
+    public Calculator() {
+        this.postfix_expression = new StackUsingArrayList<>();
+        this.linea = "";
+    }
+
 
 
     @Override
     public int Calculate(ArrayList postfix_expression) throws Exception {
-        // TODO Auto-generated method stub
+        
         return 0;
     }
-    
+
 }
