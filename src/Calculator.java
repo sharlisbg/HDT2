@@ -3,31 +3,72 @@ import java.util.ArrayList;
 /*
  * @author 
  */
-public class Calculator implements IPostfixCalculator {
-    private StackUsingArrayList<Integer> postfix_expression;
-    private String linea; 
+public class Calculator implements IPostfixCalculator<String> {
+    StackUsingArrayList<Integer> calc;
+    ArrayList<String> lista; 
 
 
     public Calculator() {
-        this.postfix_expression = new StackUsingArrayList<>();
-        this.linea = "";
+        this.calc = new StackUsingArrayList<Integer>();
+        this.lista = new ArrayList<String>();
     }
 
     @Override
-    public int Calculate(ArrayList postfix_expression) throws Exception {
-        /*Que lea la línea que es un string y lo empice a dividir y lo coloque en el strack */
+    public int Calculate(ArrayList<String> lista) throws Exception {
+        StackUsingArrayList<Integer> calc = new StackUsingArrayList<Integer>();
 
-
-        /* Si es un valor númerico hace esto */
-
-        /*Si es un valor no número un operando hace esto otro */
-        
-
-
-
+        for (String string : lista){
+            for (int i = 0; i < string.length(); i++) {
+                String[] parts = string.split(" ");
+                
+                for (String list : parts){
+                    for (int w = 0; w < list.length(); w++) {
+                        char c = list.charAt(w);
+                        int x = 0; int y = 0; int r = 0;
+                        if(Character.isDigit(c)){
+                            int t = Character.getNumericValue(c);
+                            calc.push(t);
+                        }
+                        else if(c == '+'){
+                            x = calc.peek();
+                            calc.pull();
+                            y = calc.peek();
+                            calc.pull();
+                            r = x+y;
+                            calc.push(r);
+                        }
+                        else if(c == '-'){
+                            x = calc.peek();
+                            calc.pull();
+                            y = calc.peek();
+                            calc.pull();
+                            r = y-x;
+                            calc.push(r);
+                        }
+                        else if(c == '*'){
+                            x = calc.peek();
+                            calc.pull();
+                            y = calc.peek();
+                            calc.pull();
+                            r = x*y;
+                            calc.push(r);
+                        }
+                        else if(c == '/'){
+                            x = calc.peek();
+                            calc.pull();
+                            y = calc.peek();
+                            calc.pull();
+                            r = y/x;
+                            calc.push(r);
+                        }
+                    }
+                }
+                int a = calc.peek();
+                calc.pull();
+                System.out.println(a);
+            }
+        }
         return 0;
     }
-
-
 
 }
