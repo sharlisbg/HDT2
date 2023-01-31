@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import java.lang.Exception;
+
 /**
  * @author Sharis Barrios
  *
