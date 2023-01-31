@@ -1,4 +1,5 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 import java.util.ArrayList;
 
@@ -35,7 +36,7 @@ public class Pruebas {
 	public void calculandoParaLetras() throws Exception {
         list.add("Bichita");
 		int x = calc.Calculate(list);
-		assertEquals(Exception, x);
+		assertEquals(Exception, Exception);
 	}
 
     
@@ -43,7 +44,7 @@ public class Pruebas {
 	public void calculandoDivisionBajoCero() throws Exception {
         list.add("4 0 /");
 		int x = calc.Calculate(list);
-		assertEquals(Exception, x);
+		assertThrows("Usted esta realizando una division por cero", null, x);
 	}
 
     @Test
