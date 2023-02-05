@@ -1,5 +1,6 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 
@@ -32,11 +33,19 @@ public class Pruebas {
 		assertEquals(9, x);
 	}
 
-    @Test
-	public void calculandoParaLetras() throws Exception {
+    /**
+     * @throws Exception
+     */
+    @Test(expected = Exception.class)  
+	public void calculandoParaLetras() {
         list.add("Bichita");
-		int x = calc.Calculate(list);
-		assertEquals(Exception, Exception);
+		try {
+			int x = calc.Calculate(list);
+			assertEquals(x, x);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}// ejecutamos la código que debiera lanzar la excepción
 	}
 
     
